@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#chmod u+x 6-print_comb3.py
 
 
 for i in range(10):
