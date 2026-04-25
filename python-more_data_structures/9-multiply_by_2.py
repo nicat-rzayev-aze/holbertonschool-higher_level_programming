@@ -5,4 +5,4 @@ def multiply_by_2(a_dictionary):
     b_dictionary = {}
     for key, value in a_dictionary.items():
         new_dict[key] = value * 2
-    return a_dictionary, b_dictionary
+    return b_dictionary
