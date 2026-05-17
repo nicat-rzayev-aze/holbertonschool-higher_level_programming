@@ -6,4 +6,4 @@ def uppercase(str):
             biggy += chr(ord(c) - 32)
         else:
             biggy += c
-    print(biggy)
+    print("{}".format(biggy))
