@@ -4,5 +4,5 @@ def uppercase(str):
         if ord('a') <= ord(c) <= ord('z'):
             biggy += chr(ord(c) - 32)
         else:
-            result += c
+            biggy += c
     print(result)
