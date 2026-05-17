@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def uppercase(str):
     biggy = ""
     for c in str:
