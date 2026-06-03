@@ -1,35 +1,35 @@
 #!/usr/bin/python3
-"""sssss"""
+"""s"""
 
 
 class Rectangle:
-    """sss."""
+    """s"""
 
     def __init__(self, width=0, height=0):
-        """sssss"""
+        """s"""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """ssss"""
+        """s"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """ssss"""
+        """s"""
         if not isinstance(value, int): raise TypeError("width must be an integer")
         if value < 0: raise ValueError("width must be >= 0")
         self.__width = value
 
     @property
     def height(self):
-        """SSS"""
+        """s"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """SSS"""
+        """s"""
         if not isinstance(value, int): raise TypeError("height must be an integer")
         if value < 0: raise ValueError("height must be >= 0")
         self.__height = value
