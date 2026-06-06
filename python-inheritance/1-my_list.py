@@ -8,5 +8,8 @@ class MyList(list):
     """A custom list class that extends the built-in list functionality."""
 
     def print_sorted(self):
-        """Print the list elements sorted in ascending order without modifying the original list."""
+        """Print the list elements sorted in ascending order.
+
+        The original list remains unmodified.
+        """
         print(sorted(self))
