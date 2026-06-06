@@ -4,7 +4,7 @@
 
 class BaseGeometry:
     """A class representing base geometry."""
-  
+
     def area(self):
         """Raise an Exception indicating that area is not implemented."""
         raise Exception("area() is not implemented")
@@ -24,6 +24,7 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+
 
 class Rectangle(BaseGeometry):
     """A class representing a rectangle."""
