@@ -1,3 +1,7 @@
+The `0-add_integer` module
+
+Using `add_integer`
+
 Importing the function:
     >>> add_integer = __import__('0-add_integer').add_integer
 
@@ -25,3 +29,19 @@ Raises TypeError with wrong types:
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
+
+Checking float overflow (inf and nan):
+    >>> add_integer(float('inf'), 2)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(float('nan'), 2)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
