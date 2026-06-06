@@ -1,0 +1,41 @@
+The `3-say_name` module
+
+Using `say_name`
+
+Importing the function:
+    >>> say_name = __import__('3-say_name').say_name
+
+Normal usage with both names:
+    >>> say_name("John", "Smith")
+    My name is John Smith
+
+    >>> say_name("Walter", "White")
+    My name is Walter White
+
+Usage with only first name (last name defaults to empty string):
+    >>> say_name("Bob")
+    My name is Bob 
+
+Error: first_name is not a string:
+    >>> say_name(12, "White")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Error: last_name is not a string:
+    >>> say_name("John", [1, 2])
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+Error: first_name is None:
+    >>> say_name(None, "Smith")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+Error: Missing required positional argument:
+    >>> say_name()
+    Traceback (most recent call last):
+        ...
+    TypeError: say_name() missing 1 required positional argument: 'first_name'
