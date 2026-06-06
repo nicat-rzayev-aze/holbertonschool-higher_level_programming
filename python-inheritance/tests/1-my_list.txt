@@ -1,0 +1,36 @@
+The `MyList` class inherits from `list` and adds a `print_sorted` method.
+
+To test the class, first import it:
+    >>> MyList = __import__('1-my_list').MyList
+
+Create an instance of MyList:
+    >>> my_list = MyList()
+    >>> isinstance(my_list, list)
+    True
+
+Add elements to the list:
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Print the sorted list:
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+Verify that the original list has not changed:
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Test with an empty list:
+    >>> empty_list = MyList()
+    >>> empty_list.print_sorted()
+    []
+
+Test with already sorted elements:
+    >>> ordered_list = MyList([10, 20, 30])
+    >>> ordered_list.print_sorted()
+    [10, 20, 30]
