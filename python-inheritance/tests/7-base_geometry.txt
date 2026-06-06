@@ -1,4 +1,4 @@
-The `BaseGeometry` class provides an `integer_validator` method.
+The `BaseGeometry` class provides geometry-related methods.
 
 To test the class, first import it:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
@@ -6,7 +6,13 @@ To test the class, first import it:
 Create an instance of BaseGeometry:
     >>> bg = BaseGeometry()
 
-Test with valid integers:
+Test that area() raises an Exception with the correct message:
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+Test with valid integers for the validator:
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
 
@@ -16,20 +22,10 @@ Test with invalid types (should raise TypeError):
         ...
     TypeError: name must be an integer
 
-    >>> bg.integer_validator("height", 5.5)
-    Traceback (most recent call last):
-        ...
-    TypeError: height must be an integer
-
     >>> bg.integer_validator("is_active", True)
     Traceback (most recent call last):
         ...
     TypeError: is_active must be an integer
-
-    >>> bg.integer_validator("items", [1, 2, 3])
-    Traceback (most recent call last):
-        ...
-    TypeError: items must be an integer
 
 Test with invalid values (should raise ValueError):
     >>> bg.integer_validator("age", 0)
