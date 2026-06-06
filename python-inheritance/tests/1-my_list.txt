@@ -34,3 +34,17 @@ Test with already sorted elements:
     >>> ordered_list = MyList([10, 20, 30])
     >>> ordered_list.print_sorted()
     [10, 20, 30]
+
+Test with negative numbers and zero:
+    >>> negative_list = MyList()
+    >>> negative_list.append(-5)
+    >>> negative_list.append(0)
+    >>> negative_list.append(-1)
+    >>> negative_list.append(2)
+    >>> negative_list.append(-10)
+    >>> print(negative_list)
+    [-5, 0, -1, 2, -10]
+    >>> negative_list.print_sorted()
+    [-10, -5, -1, 0, 2]
+    >>> print(negative_list)
+    [-5, 0, -1, 2, -10]
