@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This module provides a utility function to inspect objects.
+"""
 
 
 def lookup(obj):
