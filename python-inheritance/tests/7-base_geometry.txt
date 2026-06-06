@@ -1,4 +1,4 @@
-The `BaseGeometry` class provides geometry-related methods.
+The `BaseGeometry` class provides geometry-related methods and validation.
 
 To test the class, first import it:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
@@ -22,10 +22,30 @@ Test with invalid types (should raise TypeError):
         ...
     TypeError: name must be an integer
 
+    >>> bg.integer_validator("height", 5.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: height must be an integer
+
     >>> bg.integer_validator("is_active", True)
     Traceback (most recent call last):
         ...
     TypeError: is_active must be an integer
+
+    >>> bg.integer_validator("info", (1, 2))
+    Traceback (most recent call last):
+        ...
+    TypeError: info must be an integer
+
+    >>> bg.integer_validator("items", [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: items must be an integer
+
+    >>> bg.integer_validator("data", {"a": 1})
+    Traceback (most recent call last):
+        ...
+    TypeError: data must be an integer
 
 Test with invalid values (should raise ValueError):
     >>> bg.integer_validator("age", 0)
@@ -37,3 +57,8 @@ Test with invalid values (should raise ValueError):
     Traceback (most recent call last):
         ...
     ValueError: distance must be greater than 0
+
+    >>> bg.integer_validator("negative_value", -100)
+    Traceback (most recent call last):
+        ...
+    ValueError: negative_value must be greater than 0
