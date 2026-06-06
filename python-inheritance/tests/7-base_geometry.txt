@@ -12,15 +12,21 @@ Test that area() raises an Exception with the correct message:
         ...
     Exception: area() is not implemented
 
-Test with valid integers for the validator:
+Test with valid positive integers:
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
+    >>> bg.integer_validator("large", 999999999)
 
 Test with invalid types (should raise TypeError):
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
+
+    >>> bg.integer_validator("num_str", "10")
+    Traceback (most recent call last):
+        ...
+    TypeError: num_str must be an integer
 
     >>> bg.integer_validator("height", 5.5)
     Traceback (most recent call last):
@@ -31,6 +37,11 @@ Test with invalid types (should raise TypeError):
     Traceback (most recent call last):
         ...
     TypeError: is_active must be an integer
+
+    >>> bg.integer_validator("none_val", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: none_val must be an integer
 
     >>> bg.integer_validator("info", (1, 2))
     Traceback (most recent call last):
@@ -47,7 +58,7 @@ Test with invalid types (should raise TypeError):
         ...
     TypeError: data must be an integer
 
-Test with invalid values (should raise ValueError):
+Test with invalid values less than or equal to 0 (should raise ValueError):
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
         ...
