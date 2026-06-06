@@ -15,60 +15,69 @@ Test that area() raises an Exception with the correct message:
 Test with valid positive integers:
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
-    >>> bg.integer_validator("large", 999999999)
+    >>> bg.integer_validator("large_val", 999999)
 
-Test with invalid types (should raise TypeError):
+Test integer_validator with string type:
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
+Test integer_validator with numeric string type:
     >>> bg.integer_validator("num_str", "10")
     Traceback (most recent call last):
         ...
     TypeError: num_str must be an integer
 
+Test integer_validator with float type:
     >>> bg.integer_validator("height", 5.5)
     Traceback (most recent call last):
         ...
     TypeError: height must be an integer
 
+Test integer_validator with boolean type:
     >>> bg.integer_validator("is_active", True)
     Traceback (most recent call last):
         ...
     TypeError: is_active must be an integer
 
+Test integer_validator with None type:
     >>> bg.integer_validator("none_val", None)
     Traceback (most recent call last):
         ...
     TypeError: none_val must be an integer
 
+Test integer_validator with tuple type:
     >>> bg.integer_validator("info", (1, 2))
     Traceback (most recent call last):
         ...
     TypeError: info must be an integer
 
+Test integer_validator with list type:
     >>> bg.integer_validator("items", [1, 2, 3])
     Traceback (most recent call last):
         ...
     TypeError: items must be an integer
 
+Test integer_validator with dictionary type:
     >>> bg.integer_validator("data", {"a": 1})
-    Traceback (most recent call last):
+    Traceback (running description ...):
         ...
     TypeError: data must be an integer
 
-Test with invalid values less than or equal to 0 (should raise ValueError):
+Test integer_validator with value exactly 0:
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
         ...
     ValueError: age must be greater than 0
 
+Test integer_validator with a small negative value:
     >>> bg.integer_validator("distance", -4)
     Traceback (most recent call last):
         ...
     ValueError: distance must be greater than 0
 
+Test integer_validator with a large negative value:
     >>> bg.integer_validator("negative_value", -100)
     Traceback (most recent call last):
         ...
