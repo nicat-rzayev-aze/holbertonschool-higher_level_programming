@@ -4,16 +4,24 @@ import csv
 import json
 
 
-def read_csv_and_convert_to_json(csv_filename, json_filename):
-    """Reads a CSV file and converts its content to a JSON file"""
-    try:
-        with open(csv_filename, "r", encoding="utf-8") as csv_f:
-            csv_reader = csv.DictReader(csv_f)
-            data = [row for row in csv_reader]
+def convert_csv_to_json(csv_file):
+    """Converts csv content to a JSON file"""
+try:
 
-        with open(json_filename, "w", encoding="utf-8") as json_f:
-            json.dump(data, json_f)
+        with open(csv_file, mode='r', encoding='utf-8') as file:
+            csv_reader = csv.DictReader(file)
 
+            data = list(csv_reader)
+
+        with open('data.json', mode='w', encoding='utf-8') as json_file:
+            json.dump(data, json_file, indent=4, ensure_ascii=False)
+
+        print(f"Data has been successfully converted from {csv_file} to data.json.")
         return True
-    except Exception:
-        return False
+
+    except FileNotFoundError:
+        print(f"Error: File '{csv_file}' not found.")
+        raise
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        raise
