@@ -24,8 +24,9 @@ def text_indentation(text):
             continue
         skip_space = False
 
-        print(char, end="")
-
         if char in ['.', '?', ':']:
-            print("\n")
+            print(char)
+            print()
             skip_space = True
+        else:
+            print(char, end="")
