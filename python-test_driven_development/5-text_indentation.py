@@ -18,16 +18,14 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    formatted_text = text.replace('.', '.\n\n')
-    formatted_text = formatted_text.replace('?', '?\n\n')
-    formatted_text = formatted_text.replace(':', ':\n\n')
+    skip_space = False
+    for char in text:
+        if skip_space and char == ' ':
+            continue
+        skip_space = False
 
-    lines = formatted_text.split('\n\n')
+        print(char, end="")
 
-    for i, line in enumerate(lines):
-        cleaned_line = line.strip(" ")
-        if i < len(lines) - 1:
-            print(cleaned_line)
-            print()
-        else:
-            print(cleaned_line, end="")
+        if char in ['.', '?', ':']:
+            print("\n")
+            skip_space = True
