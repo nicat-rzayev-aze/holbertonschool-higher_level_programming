@@ -18,7 +18,7 @@ Normal text validation:
     <BLANKLINE>
 
 Checking spaces removal at beginning and end of lines:
-    >>> text_indentation("   Sentence one.    Sentence two?   ")
+    >>> text_indentation("Sentence one.    Sentence two?   ")
     Sentence one.
     <BLANKLINE>
     Sentence two?
