@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""This module provides a function `say_name` that prints a formatted name"""
+
+
 def say_my_name(first_name, last_name=""):
     if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
