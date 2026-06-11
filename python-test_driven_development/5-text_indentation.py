@@ -23,7 +23,7 @@ def text_indentation(text):
     formatted_text = formatted_text.replace(':', ':\n\n')
 
     lines = formatted_text.split('\n\n')
-    
+
     for i, line in enumerate(lines):
         cleaned_line = line.strip(" ")
         if i < len(lines) - 1:
