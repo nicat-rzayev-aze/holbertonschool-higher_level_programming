@@ -1,24 +1,30 @@
 Importing the function:
-    >>> is_same_class = __import__('1-is_same_class').is_same_class
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
 
-Testing with integers:
-    >>> a = 1
-    >>> is_same_class(a, int)
-    True
-    >>> is_same_class(a, float)
-    False
-    >>> is_same_class(a, object)
-    False
+Normal text validation:
+    >>> text_indentation("Hello. World? Testing: Python.")
+    Hello.
+    <BLANKLINE>
+    World?
+    <BLANKLINE>
+    Testing:
+    <BLANKLINE>
+    Python.
 
-Testing with floats:
-    >>> b = 3.14
-    >>> is_same_class(b, float)
-    True
-    >>> is_same_class(b, int)
-    False
+Checking spaces removal at beginning and end of lines:
+    >>> text_indentation("   Sentence one.    Sentence two?   ")
+    Sentence one.
+    <BLANKLINE>
+    Sentence two?
 
-Testing with strings:
-    >>> is_same_class("Holberton", str)
-    True
-    >>> is_same_class("School", object)
-    False
+Error: text is not a string (TypeError):
+    >>> text_indentation(12345)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Error: text is None:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
