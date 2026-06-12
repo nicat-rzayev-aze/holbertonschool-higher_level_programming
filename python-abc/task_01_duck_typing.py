@@ -1,16 +1,14 @@
-#!/usr/bin/python3
-import abc
+#!/usr/bin/env python3
+from abc import ABC, abstractmethod
 import math
 
 
-class Shape(abc.ABC):
-    """Abstract base class for shapes."""
-
-    @abc.abstractmethod
+class Shape(ABC):
+    @abstractmethod
     def area(self):
         pass
 
-    @abc.abstractmethod
+    @abstractmethod
     def perimeter(self):
         pass
 
@@ -39,5 +37,5 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
-    print(f"Area: {shape.area():.2f}")
-    print(f"Perimeter: {shape.perimeter():.2f}")
+    print(f"Area: {shape.area()}")
+    print(f"Perimeter: {shape.perimeter()}")
