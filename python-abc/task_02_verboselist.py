@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+from task_02_verboselist import VerboseList
+
+
 class NotifiedList(list):
     """
     A custom list class that extends Python's built-in list class to provide 
