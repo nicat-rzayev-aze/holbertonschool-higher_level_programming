@@ -74,3 +74,13 @@ class NotifiedList(list):
         """
         super().insert(index, item)
         print(f"Inserted [{item}] at index {index}.")
+        
+if __name__ == "__main__":
+    nlist = NotifiedList()
+    nlist.append(1)
+    nlist.append(2)
+    nlist.append(3)
+    nlist.extend([4, 5])
+    nlist.remove(2)
+    nlist.pop()
+    print(f"Final list: {nlist}")
