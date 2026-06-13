@@ -1,57 +1,43 @@
+#!/usr/bin/python3
+
+
 import requests
-import json
+import csv
+
 
 def fetch_and_print_posts():
     """Fetch posts from API and print them"""
-    posts = [
-        {
-            'id': 1,
-            'title': 'sunt aut facere repellat provident',
-            'body': 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum'
-        },
-        {
-            'id': 2,
-            'title': 'qui est esse',
-            'body': 'est rerum tempore vitae\nsequi sint nihil reprehenderit dolor'
-        },
-        {
-            'id': 3,
-            'title': 'ea molestias quasi exercitationem',
-            'body': 'et iusto sed quo iure\nvoluptatem occaecati omnis eligendi'
-        }
-    ]
+    response = requests.get('https://jsonplaceholder.typicode.com/posts')
 
-    status_code = 200
-    print(f"Status code: {status_code}")
-    print(f"Fetched {len(posts)} posts:")
-    for post in posts:
-        print(f"ID: {post['id']}, Title: {post['title']}")
-    
-    return posts
+    print(f"Status Code: {response.status_code}")
 
+    if response.status_code == 200:
+        posts = response.json()
+
+        for post in posts:
+            print(post['title'])
 
 def fetch_and_save_posts():
     """Fetch posts from API and save to file"""
-    posts = [
-        {
-            'id': 1,
-            'title': 'sunt aut facere repellat provident',
-            'body': 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum'
-        },
-        {
-            'id': 2,
-            'title': 'qui est esse',
-            'body': 'est rerum tempore vitae\nsequi sint nihil reprehenderit dolor'
-        },
-        {
-            'id': 3,
-            'title': 'ea molestias quasi exercitationem',
-            'body': 'et iusto sed quo iure\nvoluptatem occaecati omnis eligendi'
-        }
-    ]
+    response = requests.get('https://jsonplaceholder.typicode.com/posts')
 
-    with open('posts.json', 'w', encoding='utf-8') as f:
-        json.dump(posts, f, indent=2, ensure_ascii=False)
-    
-    print(f"Saved {len(posts)} posts to posts.json")
-    return posts
+    if response.status_code == 200:
+        posts = response.json()
+
+        simplified_posts = [
+            {
+                'id': post['id'],
+                'title': post['title'],
+                'body': post['body']
+            }
+            for post in posts
+        ]
+
+        with open('posts.csv', 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['id', 'title', 'body']
+
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+            writer.writeheader()
+
+            writer.writerows(simplified_posts)
