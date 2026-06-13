@@ -6,5 +6,5 @@ if __name__ == "__main__":
 
     for arguman in sys.argv[1:]:
         toplam += int(arguman)
-  
+
     print("{}".format(toplam))
