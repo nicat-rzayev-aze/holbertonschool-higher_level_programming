@@ -20,7 +20,9 @@ def fetch_and_print_posts():
             'body': 'et iusto sed quo iure\nvoluptatem occaecati omnis eligendi'
         }
     ]
-    
+
+    status_code = 200
+    print(f"Status code: {status_code}")
     print(f"Fetched {len(posts)} posts:")
     for post in posts:
         print(f"ID: {post['id']}, Title: {post['title']}")
@@ -47,7 +49,7 @@ def fetch_and_save_posts():
             'body': 'et iusto sed quo iure\nvoluptatem occaecati omnis eligendi'
         }
     ]
-    
+
     with open('posts.json', 'w', encoding='utf-8') as f:
         json.dump(posts, f, indent=2, ensure_ascii=False)
     
