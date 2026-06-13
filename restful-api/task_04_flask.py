@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+For creating api
+"""
 
 from flask import Flask, jsonify, request
 
