@@ -1,18 +1,26 @@
 #!/usr/bin/python3
 """
-Task 0 - Write a script that lists all states from the database hbtn_0e_0_usa
+Script that lists all `states` from the database `hbtn_0e_0_usa`.
+
+Arguments:
+    mysql username (str)
+    mysql password (str)
+    database name (str)
 """
 
-if __name__ == "__main__":
-    import MySQLdb
-    from sys import argv
+import sys
+import MySQLdb
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                         passwd=argv[2], db=argv[3], charset="utf8")
+if __name__ == "__main__":
+    mySQL_u = sys.argv[1]
+    mySQL_p = sys.argv[2]
+    db_name = sys.argv[3]
+
+    db = MySQLdb.connect(user=mySQL_u, passwd=mySQL_p, db=db_name)
     cur = db.cursor()
+
     cur.execute("SELECT * FROM states ORDER BY id")
-    query_rows = cur.fetchall()
-    for row in query_rows:
+    rows = cur.fetchall()
+
+    for row in rows:
         print(row)
-    cur.close()
-    db.close()
